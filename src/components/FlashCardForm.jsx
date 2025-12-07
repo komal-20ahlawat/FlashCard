@@ -1,39 +1,48 @@
-import {X} from "lucide-react";
+import { X } from "lucide-react";
+import { useRef } from "react";
 import "../styles/FlashCardForm.css";
-import {useRef} from "react"
 
-function FlashCardForm ({showModal,onClose}) {
-    const questionRef = useRef(null);
-    const answerRef = useRef(null);
-    function submitCard (e) {
-        e.preventDefault()
-        if (!questionRef.current.value || !answerRef.current.value) return;
-        const card ={question: questionRef.current.value,
-            answer:answerRef.current.value,
-        };
-        onAddFlashCard(card);
-        onClose()
-    }
-    return (
-        <>
-        {showModal && (
+function FlashCardForm({ addFlashcard, showModal, onClose }) {
+  const questionRef = useRef(null);
+  const answerRef = useRef(null);
+  
+  function SubmitCard(e) {
+    e.preventDefault();
+
+    const question = questionRef.current.value;
+    const answer = answerRef.current.value;
+
+    if (!question || !answer) return;
+
+    addFlashcard({ question, answer });
+
+    questionRef.current.value = "";
+    answerRef.current.value = "";
+
+    onClose();
+  }
+
+  return (
+    <>
+      {showModal && (
         <div className="modal-overlay">
-            <form className="flashcard-form">
-                <button className="close-btn" type="button">
-                <X sixe={26} strokeWidth={2.5}/>
-                </button>
+          <form className="flashcard-form" onSubmit={SubmitCard}>
+            <button className="close-btn" type="button" onClick={onClose}>
+              <X size={26} strokeWidth={2.5} />
+            </button>
 
-                <label>Questions</label>
-                <input ref={questionRef} type="text" name="answer" />
+            <label>Question</label>
+            <input ref={questionRef} type="text" name="question" />
 
-                <label>Answers</label>
-                <input ref={answerRefRef} type="text" name="answer" />
+            <label>Answer</label>
+            <input ref={answerRef} type="text" name="answer" />
 
-                <button type="submit">Add Flashcard</button>
-            </form>
+            <button type="submit" onSubmit={submitCard}>Add Flashcard</button>
+          </form>
         </div>
-    )}    
-        </>
-    );
+      )}
+    </>
+  );
 }
+
 export default FlashCardForm;
