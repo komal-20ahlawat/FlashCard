@@ -1,5 +1,5 @@
 import { X } from "lucide-react";
-import { useRef } from "react";
+import { useRef,useEffect } from "react";
 import "../styles/FlashCardForm.css";
 
 function FlashCardForm({ onAddFlashCard, showModal, onClose }) {
@@ -17,6 +17,11 @@ function FlashCardForm({ onAddFlashCard, showModal, onClose }) {
         onAddFlashCard(card);
         onClose()
   }
+  useEffect(() => {
+    if (showAddModal && questionRef.current) {
+      questionRef.current.focus();
+    }
+  }, [showAddModal]);
 
   return (
     <>
