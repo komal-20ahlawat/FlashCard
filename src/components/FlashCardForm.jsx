@@ -25,7 +25,7 @@ function FlashCardForm({ onAddFlashCard, showModal, onClose }) {
     <>
       {showModal && (
         <div className="modal-overlay">
-          <form className="flashcard-form" onSubmit={submitCard}>
+          <form className="flashcard-form">
             <button className="close-btn" type="button" onClick={onClose}>
               <X size={26} strokeWidth={2.5} />
             </button>
