@@ -15,7 +15,7 @@ function App() {
 
 
   function delFlashcard(id) {
-    setFlashCards((prev) => prev.filter((item) => item.id !== id));
+    setFlashCards((prev) => prev.filter((item) => item.id != id));
   }
 
   function toggleModal() {
@@ -26,7 +26,7 @@ function App() {
     <>
       <nav>
         <h1 className="nav-title">Flashcard App</h1>
-        <button onClick={toggleModal} id="add-button">
+        <button id="add-button" onClick={toggleModal}>
           <Plus />
         </button>
       </nav>
