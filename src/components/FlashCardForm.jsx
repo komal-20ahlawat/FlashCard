@@ -7,9 +7,7 @@ function FlashCardForm({ onAddFlashCard, showModal, onClose }) {
   const answerRef = useRef(null);
   
   function submitCard(e) {
-    e.preventDefault();
-
-  e.preventDefault()
+    e.preventDefault()
         if (!questionRef.current.value || !answerRef.current.value) return;
         const card ={question: questionRef.current.value,
             answer:answerRef.current.value,
@@ -18,10 +16,10 @@ function FlashCardForm({ onAddFlashCard, showModal, onClose }) {
         onClose()
   }
   useEffect(() => {
-    if (showAddModal && questionRef.current) {
+    if (showModal && questionRef.current) {
       questionRef.current.focus();
     }
-  }, [showAddModal]);
+  }, [showModal]);
 
   return (
     <>
