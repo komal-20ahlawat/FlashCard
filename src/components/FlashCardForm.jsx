@@ -2,31 +2,27 @@ import { X } from "lucide-react";
 import { useRef } from "react";
 import "../styles/FlashCardForm.css";
 
-function FlashCardForm({ addFlashcard, showModal, onClose }) {
+function FlashCardForm({ onAddFlashCard, showModal, onClose }) {
   const questionRef = useRef(null);
   const answerRef = useRef(null);
   
-  function SubmitCard(e) {
+  function submitCard(e) {
     e.preventDefault();
 
-    const question = questionRef.current.value;
-    const answer = answerRef.current.value;
-
-    if (!question || !answer) return;
-
-    addFlashcard({ question, answer });
-
-    questionRef.current.value = "";
-    answerRef.current.value = "";
-
-    onClose();
+  e.preventDefault()
+        if (!questionRef.current.value || !answerRef.current.value) return;
+        const card ={question: questionRef.current.value,
+            answer:answerRef.current.value,
+        };
+        onAddFlashCard(card);
+        onClose()
   }
 
   return (
     <>
       {showModal && (
         <div className="modal-overlay">
-          <form className="flashcard-form" onSubmit={SubmitCard}>
+          <form className="flashcard-form" onSubmit={submitCard}>
             <button className="close-btn" type="button" onClick={onClose}>
               <X size={26} strokeWidth={2.5} />
             </button>
