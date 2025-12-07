@@ -1,0 +1,83 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.18);
+  z-index: 999;
+}
+
+.close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  padding: 6px;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.flashcard-form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 560px;
+  padding: 36px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  align-items: stretch;
+}
+
+.flashcard-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+
+.flashcard-form input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 16px;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  border: 2px solid rgba(0, 0, 0, 0.7);
+  background: transparent;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.flashcard-form input::placeholder {
+  opacity: 0.6;
+}
+
+.flashcard-form button[type="submit"] {
+  width: 100%;
+  padding: 16px;
+
+  border: black 4px solid;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: "Koulen", sans-serif;
+  background-color: #f582ae;
+  color: #172c66;
+  font-size: 18px;
+}
+
+input {
+  font-family: "Koulen", sans-serif;
+}
