@@ -15,7 +15,7 @@ function App() {
 
 
   function delFlashcard(id) {
-    setFlashCards((prev) => prev.filter((card) => item.id !== id));
+    setFlashCards((prev) => prev.filter((item) => item.id !== id));
   }
 
   function toggleModal() {
@@ -45,7 +45,7 @@ function App() {
                 id={item.id}
                 question={item.question}
                 answer={item.answer}
-                onDel={delFlashcard}
+                onDelete={delFlashcard}
               />
             );
           })}

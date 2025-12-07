@@ -1,7 +1,7 @@
 import { Trash2 } from "lucide-react";
 import "../styles/FlashCard.css";
 
-function FlashCard({ id, question, answer, onDel}) {
+function FlashCard({ id, question, answer, onDelete}) {
   return (
     <div className="flashcard-box">
       <button className="delete-btn" onClick={() => onDelete(id)}>
